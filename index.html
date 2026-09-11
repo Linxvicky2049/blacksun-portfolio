@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07080d">
+  <meta name="description" content="OKAFOR VICTOR SOMTO — Full-Stack Developer, AI-Native Software Engineer and Creative Technologist. BLACKSUN."
+  <title>OKAFOR VICTOR SOMTO — Full-Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/blacksun-logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cursor-glow"></div>
+  <canvas id="space"></canvas>
+  <div class="noise"></div>
+  <div class="progress"><span></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="BLACKSUN home">
+      <span class="brand-mark"><img src="assets/blacksun-logo.jpeg" alt="BLACKSUN logo"></span>
+      <span>BLACKSUN<span class="brand-dot">.</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#work">Work</a><a href="#stack">Stack</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="mailto:victor4all2015@gmail.com">Let's build <span>↗</span></a>
+    <button class="menu" aria-label="Open menu"><i></i><i></i></button>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="pulse"></span> AVAILABLE FOR PRODUCT ENGINEERING</p>
+        <h1>I build <em>intelligent</em><br><span>digital systems.</span></h1>
+        <p class="hero-lead">Full-stack developer & creative technologist turning ambitious ideas into polished web products, AI workflows and connected systems.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work">Explore my work <span>↓</span></a>
+          <a class="button ghost" href="assets/OKAFOR_VICTOR_SOMTO_Resume.docx">Download resume <span>↗</span></a>
+        </div>
+        <div class="hero-meta">
+          <span>Asaba / Nigeria</span><span>React · Next.js · FastAPI</span><span>AI · IoT · Generative UI</span>
+        </div>
+      </div>
+
+      <div class="hero-art reveal delay-2">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="hero-card tilt">
+          <div class="card-top"><span>BLACKSUN // 001</span><span>AI-NATIVE</span></div>
+          <div class="avatar-wrap"><div class="halo"></div><img src="assets/victor-avatar.jpg" alt="BLACKSUN character avatar"></div>
+          <div class="signal"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="card-bottom"><strong>VICTOR</strong><span>CREATIVE TECHNOLOGIST</span></div>
+        </div>
+        <div class="floating-chip chip-one">BUILD / SHIP / ITERATE</div>
+        <div class="floating-chip chip-two">↗  FULL STACK</div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Technologies">
+      <div class="marquee-track"><span>REACT</span><b>✦</b><span>NEXT.JS</span><b>✦</b><span>TYPESCRIPT</span><b>✦</b><span>PYTHON</span><b>✦</b><span>FASTAPI</span><b>✦</b><span>PYTORCH</span><b>✦</b><span>ESP32-S3</span><b>✦</b><span>AI-NATIVE</span><b>✦</b></div>
+    </section>
+
+    <section id="work" class="section work">
+      <div class="section-head reveal"><p class="eyebrow">SELECTED WORK</p><h2>Ideas become <em>systems.</em></h2><p>From product platforms to experimental AI and hardware, I like work where engineering and imagination have to coexist.</p></div>
+      <div class="project-grid">
+        <article class="project project-large reveal tilt">
+          <div class="project-visual visual-gaming"><div class="grid-lines"></div><span class="project-index">01</span><span class="visual-word">GAMING<br>AFRICA</span></div>
+          <div class="project-info"><div><span class="project-type">LIVE PRODUCT</span><h3>Gaming-Africa.com</h3><p>A gaming platform built around community, profiles, platform workflows and a responsive product experience.</p></div><a href="https://gaming-africa.com" target="_blank" rel="noreferrer">Visit project ↗</a></div>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>Node.js</span><span>MongoDB</span><span>Firebase</span></div>
+        </article>
+        <article class="project reveal tilt">
+          <div class="project-visual visual-kage"><span class="project-index">02</span><div class="comic">KAGE<br><i>FLOW</i><small>AI MOTION ENGINE</small></div></div>
+          <div class="project-info"><div><span class="project-type">EXPERIMENTAL AI</span><h3>KageFlow AI</h3><p>Manga motion reconstruction using OCR, rule-based motion compilation and interactive Pixi.js playback.</p></div><span class="arrow">↗</span></div>
+          <div class="tags"><span>OCR</span><span>Pixi.js</span><span>AI</span><span>React</span></div>
+        </article>
+        <article class="project reveal tilt">
+          <div class="project-visual visual-sense"><span class="project-index">03</span><div class="radar"><i></i><i></i><i></i></div><span class="radar-label">CSI // SIGNAL FIELD</span></div>
+          <div class="project-info"><div><span class="project-type">IOT / SIGNAL PROCESSING</span><h3>SenseGrid</h3><p>WiFi CSI presence and fall-detection system across ESP32-S3 nodes with signal-processing pipelines.</p></div><span class="arrow">↗</span></div>
+          <div class="tags"><span>ESP32-S3</span><span>Python</span><span>FFT</span><span>Signal Processing</span></div>
+        </article>
+        <article class="project project-dark reveal tilt">
+          <div class="project-visual visual-biz"><span class="project-index">04</span><span class="biz-orb"></span><span class="visual-word">BIZ<br><i>BUYSELL</i></span></div>
+          <div class="project-info"><div><span class="project-type">FULL-STACK PRODUCT</span><h3>BizBuySell</h3><p>Marketplace architecture for designers, sellers and customers across products, checkout, orders, quotes and messaging.</p></div><span class="arrow">↗</span></div>
+          <div class="tags"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>Prisma</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="stack" class="section stack-section">
+      <div class="section-head reveal"><p class="eyebrow">THE TOOLBOX</p><h2>Built for the <em>whole stack.</em></h2><p>I move comfortably between interface, API, data, AI and hardware — and use AI tools to make the loop faster without surrendering engineering judgment.</p></div>
+      <div class="stack-layout">
+        <div class="stack-sphere reveal"><div class="sphere-core">AI<br><small>+</small><br>CODE</div><div class="ring ring-1"></div><div class="ring ring-2"></div><div class="ring ring-3"></div><span class="node n1">React</span><span class="node n2">Python</span><span class="node n3">PyTorch</span><span class="node n4">FastAPI</span></div>
+        <div class="stack-list reveal">
+          <div class="stack-row"><span>01</span><div><h3>Frontend</h3><p>React · Next.js · TypeScript · JavaScript · HTML · CSS · responsive systems · Figma</p></div></div>
+          <div class="stack-row"><span>02</span><div><h3>Backend & Data</h3><p>Node.js · Express · Python · FastAPI · REST · PostgreSQL · Prisma · MongoDB</p></div></div>
+          <div class="stack-row"><span>03</span><div><h3>AI-native engineering</h3><p>ChatGPT · Claude · Claude Code · Cursor · GitHub Copilot · Gemini · prompt workflows · verification · bounded agents · MCP concepts</p></div></div>
+          <div class="stack-row"><span>04</span><div><h3>Intelligent systems</h3><p>PyTorch · computer vision · OCR · signal processing · ESP32-S3 · WiFi CSI · interactive graphics</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="about-grid">
+        <div class="about-image reveal"><img src="assets/black-sun-abstract.png" alt="Abstract BLACKSUN artwork"><div class="about-stamp">BS<br><small>BLACKSUN</small></div></div>
+        <div class="about-copy reveal"><p class="eyebrow">ABOUT VICTOR</p><h2>Engineering with a <em>creative pulse.</em></h2><p>I'm OKAFOR VICTOR SOMTO — a full-stack developer and creative technologist based in Nigeria. My background in Physics shaped how I think: break a system down, understand the signal, then build something that works.</p><p>My portfolio spans production-minded web applications, AI experiments, connected hardware and generative interfaces. I care about the details people feel: motion, clarity, performance, useful abstractions and interfaces with character.</p><div class="facts"><div><strong>B.Sc.</strong><span>Physics · FUPRE</span></div><div><strong>BLACKSUN</strong><span>Independent studio</span></div><div><strong>∞</strong><span>Curiosity level</span></div></div><div class="socials"><a href="https://www.linkedin.com/in/okafor-victor-2717783b4" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/Linxvicky2049" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linxvicky2049.github.io/portfolio-website/" target="_blank" rel="noreferrer">Current site ↗</a></div></div>
+      </div>
+    </section>
+
+    <section class="section ai-section">
+      <div class="ai-panel reveal"><div class="ai-grid"></div><div class="ai-copy"><p class="eyebrow">AI-NATIVE WORKFLOW</p><h2>AI is the <em>accelerator.</em><br>Judgment stays human.</h2><p>I use AI to explore implementations, inspect unfamiliar code, generate tests, debug, refactor, document and prepare changes. Then I verify the output against requirements, architecture, edge cases and actual runtime behavior.</p><div class="workflow"><span>01 Prompt</span><i>→</i><span>02 Generate</span><i>→</i><span>03 Inspect</span><i>→</i><span>04 Test</span><i>→</i><span>05 Ship</span></div></div><div class="ai-orb"><div></div><span>HUMAN<br>+ AI</span></div></div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="contact-inner reveal"><p class="eyebrow">START A CONVERSATION</p><h2>Have a hard problem?<br><em>Let's build it.</em></h2><p>Available for full-stack product work, AI-native engineering, creative technology and ambitious collaborations.</p><div class="contact-actions"><a class="button primary" href="mailto:victor4all2015@gmail.com?subject=Project%20Inquiry">Email Victor ↗</a><a class="button ghost" href="https://www.linkedin.com/in/okafor-victor-2717783b4" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a></div><div class="contact-line"><span>victor4all2015@gmail.com</span><span>Asaba · Nigeria</span><span>BLACKSUN / 2026</span></div></div>
+    </section>
+  </main>
+
+  <footer><span>© 2026 OKAFOR VICTOR SOMTO</span><span>Designed + engineered under BLACKSUN.</span><a href="#home">Back to top ↑</a></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
