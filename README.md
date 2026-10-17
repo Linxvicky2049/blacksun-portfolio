@@ -4,6 +4,8 @@ Responsive personal portfolio for OKAFOR VICTOR SOMTO. The site features a touch
 
 The hero portrait is an accessible, clickable toggle: both image changes use perspective-lit 3D shards to transition between Victor's portrait and `assets/victor-avatar.png`, with no on-image prompt. The account button uses the illustrated `victor-avatar.jpg`. Motion includes subtle orbiting artwork, pointer-reactive 3D tilt, staggered project cards, and scroll reveals; the portrait transition and other effects respect the device's reduced-motion preference.
 
+The full-screen `assets/black-sun-abstract.png` background is revealed beneath a soft, moving cursor or touch mask. The canvas uses a cover fit, caps rendering at 2x device pixel ratio, fades after pointer movement stops, and remains pointer-transparent so site controls work normally. The reveal simplifies its interpolation for reduced-motion users and leaves the dark background in place if the image or canvas cannot load. It uses browser Canvas 2D and Pointer Events support available in current major browsers.
+
 ## Run locally
 
 ```bash

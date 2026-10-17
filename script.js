@@ -23,6 +23,18 @@ const adminEditor = document.getElementById('portfolio-editor');
 const adminStatus = document.getElementById('admin-status');
 const portraitTransform = document.getElementById('portrait-transform');
 const portraitFragmentLayer = document.querySelector('.portrait-fragments');
+const REVEAL_CONFIG = Object.freeze({
+  imageUrl: 'assets/black-sun-abstract.png',
+  desktopRadius: 180,
+  tabletRadius: 145,
+  mobileRadius: 125,
+  edgeStart: 0.62,
+  edgeMidpoint: 0.84,
+  smoothing: 0.2,
+  idleDelay: 1100,
+  touchReleaseDelay: 280,
+  maxPixelRatio: 2
+});
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({
@@ -783,9 +795,10 @@ async function init() {
   bindPortraitTransform();
   bindAuth();
   setupMotion();
+  setupInteractiveReveal();
+  setupBackgroundStars();
   await loadPortfolio();
   await initAuth();
-  setupBackgroundStars();
 }
 
 function setupMotion() {
@@ -840,6 +853,151 @@ function setupMotion() {
     visual.style.setProperty('--pointer-tilt-x', '0deg');
     visual.style.setProperty('--pointer-tilt-y', '0deg');
   }, { passive: true });
+}
+
+function setupInteractiveReveal() {
+  const canvas = document.getElementById('cursor-reveal');
+  const context = canvas?.getContext('2d', { alpha: true, desynchronized: true });
+  if (!canvas || !context) return;
+
+  const image = new Image();
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let pixelRatio = 1;
+  let width = 0;
+  let height = 0;
+  let radius = REVEAL_CONFIG.desktopRadius;
+  let x = 0;
+  let y = 0;
+  let targetX = 0;
+  let targetY = 0;
+  let opacity = 0;
+  let targetOpacity = 0;
+  let frame = 0;
+  let idleTimer = 0;
+  let touchPointerId = null;
+
+  function requestDraw() {
+    if (!frame && image.complete && image.naturalWidth) frame = requestAnimationFrame(draw);
+  }
+
+  function draw() {
+    frame = 0;
+    if (!image.complete || !image.naturalWidth) return;
+
+    const smoothing = prefersReducedMotion ? 1 : REVEAL_CONFIG.smoothing;
+    x += (targetX - x) * smoothing;
+    y += (targetY - y) * smoothing;
+    opacity += (targetOpacity - opacity) * smoothing;
+    if (Math.abs(targetX - x) < 0.3) x = targetX;
+    if (Math.abs(targetY - y) < 0.3) y = targetY;
+    if (Math.abs(targetOpacity - opacity) < 0.01) opacity = targetOpacity;
+
+    context.clearRect(0, 0, width, height);
+    if (opacity > 0.002) {
+      const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
+      const imageWidth = image.naturalWidth * scale;
+      const imageHeight = image.naturalHeight * scale;
+      context.globalAlpha = 1;
+      context.globalCompositeOperation = 'source-over';
+      context.drawImage(image, (width - imageWidth) / 2, (height - imageHeight) / 2, imageWidth, imageHeight);
+
+      const mask = context.createRadialGradient(x, y, 0, x, y, radius);
+      mask.addColorStop(0, `rgba(255,255,255,${opacity})`);
+      mask.addColorStop(REVEAL_CONFIG.edgeStart, `rgba(255,255,255,${opacity})`);
+      mask.addColorStop(REVEAL_CONFIG.edgeMidpoint, `rgba(255,255,255,${opacity * 0.56})`);
+      mask.addColorStop(1, 'rgba(255,255,255,0)');
+      context.globalCompositeOperation = 'destination-in';
+      context.fillStyle = mask;
+      context.fillRect(0, 0, width, height);
+      context.globalCompositeOperation = 'source-over';
+    }
+
+    const stillMoving = Math.abs(targetX - x) >= 0.3
+      || Math.abs(targetY - y) >= 0.3
+      || Math.abs(targetOpacity - opacity) >= 0.01;
+    if (stillMoving) requestDraw();
+  }
+
+  function resize() {
+    pixelRatio = Math.min(window.devicePixelRatio || 1, REVEAL_CONFIG.maxPixelRatio);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.round(width * pixelRatio);
+    canvas.height = Math.round(height * pixelRatio);
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    radius = width <= 600
+      ? REVEAL_CONFIG.mobileRadius
+      : width <= 1024
+        ? REVEAL_CONFIG.tabletRadius
+        : REVEAL_CONFIG.desktopRadius;
+    requestDraw();
+  }
+
+  function fadeOut(delay = 0) {
+    window.clearTimeout(idleTimer);
+    idleTimer = window.setTimeout(() => {
+      targetOpacity = 0;
+      requestDraw();
+    }, delay);
+  }
+
+  function updatePosition(event) {
+    targetX = event.clientX;
+    targetY = event.clientY;
+    if (opacity <= 0) {
+      x = targetX;
+      y = targetY;
+    }
+    targetOpacity = 1;
+    fadeOut(REVEAL_CONFIG.idleDelay);
+    requestDraw();
+  }
+
+  function handlePointerMove(event) {
+    if (event.pointerType === 'touch') {
+      if (event.pointerId !== touchPointerId) return;
+    } else if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') {
+      return;
+    }
+    updatePosition(event);
+  }
+
+  image.addEventListener('load', requestDraw, { once: true });
+  image.addEventListener('error', () => {
+    console.warn(`Interactive background image could not be loaded: ${REVEAL_CONFIG.imageUrl}`);
+    context.clearRect(0, 0, width, height);
+  }, { once: true });
+  image.src = REVEAL_CONFIG.imageUrl;
+
+  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('orientationchange', resize, { passive: true });
+  window.addEventListener('pointermove', handlePointerMove, { passive: true });
+  window.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'touch') return;
+    touchPointerId = event.pointerId;
+    updatePosition(event);
+  }, { passive: true });
+  window.addEventListener('pointerup', (event) => {
+    if (event.pointerId !== touchPointerId) return;
+    touchPointerId = null;
+    fadeOut(REVEAL_CONFIG.touchReleaseDelay);
+  }, { passive: true });
+  window.addEventListener('pointercancel', (event) => {
+    if (event.pointerId !== touchPointerId) return;
+    touchPointerId = null;
+    fadeOut();
+  }, { passive: true });
+  window.addEventListener('pointerleave', (event) => {
+    if (event.pointerType === 'mouse' && touchPointerId === null) fadeOut(160);
+  }, { passive: true });
+  window.addEventListener('blur', () => fadeOut(), { passive: true });
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) return;
+    targetOpacity = 0;
+    context.clearRect(0, 0, width, height);
+  }, { passive: true });
+
+  resize();
 }
 
 function setupBackgroundStars() {
