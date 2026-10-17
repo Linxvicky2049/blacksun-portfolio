@@ -450,18 +450,25 @@ function bindPortraitTransform() {
   portraitTransform.addEventListener('click', () => {
     const showAvatar = portraitTransform.getAttribute('aria-pressed') !== 'true';
     portraitTransform.setAttribute('aria-pressed', String(showAvatar));
-    portraitTransform.setAttribute(
-      'aria-label',
-      showAvatar
-        ? 'Return to Victor’s portrait'
-        : 'Transform Victor’s portrait into the illustrated BLACKSUN avatar'
-    );
-    document.getElementById('portrait-prompt-text').textContent = showAvatar
-      ? 'RESTORE PORTRAIT'
-      : 'ACTIVATE AVATAR SHIFT';
+    const transitionImage = showAvatar ? 'assets/victor.png' : 'assets/victor-avatar.png';
+    portraitFragmentLayer.querySelectorAll('.portrait-fragment').forEach((fragment) => {
+      fragment.style.backgroundImage = `url("${transitionImage}")`;
+    });
     document.querySelector('.portrait-source').setAttribute('aria-hidden', String(showAvatar));
     document.querySelector('.portrait-avatar').setAttribute('aria-hidden', String(!showAvatar));
     portraitTransform.classList.toggle('is-avatar', showAvatar);
+    portraitTransform.classList.remove('is-transitioning');
+    void portraitTransform.offsetWidth;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    portraitTransform.classList.add('is-transitioning');
+  });
+
+  portraitFragmentLayer.addEventListener('animationend', (event) => {
+    if (!event.target.matches('.portrait-fragment')) return;
+    const animationsRunning = [...portraitFragmentLayer.querySelectorAll('.portrait-fragment')]
+      .some((fragment) => fragment.getAnimations().some((animation) => animation.playState === 'running'));
+    if (!animationsRunning) portraitTransform.classList.remove('is-transitioning');
   });
 }
 

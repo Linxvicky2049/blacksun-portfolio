@@ -2,7 +2,7 @@
 
 Responsive personal portfolio for OKAFOR VICTOR SOMTO. The site features a touch-friendly, horizontally scrollable project menu, live project previews, tool logos, hidden-on-load project support, Firebase sign-in, and a super-admin editor.
 
-The hero uses Victor's portrait and is an accessible, clickable transformation: the portrait breaks into perspective-lit 3D shards before revealing `assets/victor-avatar.png`. Click or keyboard-activate it again to return to the portrait. The account button uses the illustrated `victor-avatar.jpg`. Motion includes subtle orbiting artwork, pointer-reactive 3D tilt, staggered project cards, and scroll reveals; the portrait transformation and other effects respect the device's reduced-motion preference.
+The hero portrait is an accessible, clickable toggle: both image changes use perspective-lit 3D shards to transition between Victor's portrait and `assets/victor-avatar.png`, with no on-image prompt. The account button uses the illustrated `victor-avatar.jpg`. Motion includes subtle orbiting artwork, pointer-reactive 3D tilt, staggered project cards, and scroll reveals; the portrait transition and other effects respect the device's reduced-motion preference.
 
 ## Run locally
 
