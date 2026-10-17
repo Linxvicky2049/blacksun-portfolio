@@ -17,6 +17,15 @@
 }
 
 * { box-sizing: border-box; }
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -975,8 +984,7 @@ h2 em, h1 em { color: var(--lime); font-style: normal; }
   overflow-x: auto;
   padding: 12px 4px 20px;
   scroll-snap-type: x mandatory;
-  scrollbar-color: rgba(186,255,53,0.5) rgba(255,255,255,0.04);
-  scrollbar-width: thin;
+  scrollbar-width: none;
   overscroll-behavior-inline: contain;
   touch-action: pan-x;
 }
