@@ -46,7 +46,7 @@ If the frontend and backend are hosted separately, set `window.BLACKSUN_API_URL`
 
 ## CV files
 
-The existing resume is preserved at `assets/OKAFOR_VICTOR_SOMTO_Resume.docx` and copied to `assets/cv/OKAFOR_VICTOR_SOMTO_CV.docx`. A verified PDF source has not been provided; the project does not generate a fabricated PDF.
+The supplied resume is available at `assets/OKAFOR_VICTOR_SOMTO_Resume.docx` and mirrored at `assets/cv/OKAFOR_VICTOR_SOMTO_CV.docx`. A verified PDF source has not been provided; the project does not generate a fabricated PDF.
 
 ## Checks
 
