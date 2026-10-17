@@ -46,6 +46,30 @@
       "source": "GitHub repository homepage"
     },
     {
+      "id": "gaming-africa",
+      "name": "Gaming Hub Africa",
+      "category": "Gaming",
+      "status": "Live",
+      "description": "A live gaming hub for the African gaming community. Visit Gaming Hub Africa to explore the experience.",
+      "tech": ["Web", "Gaming"],
+      "repoUrl": "",
+      "href": "https://www.gaming-africa.com/",
+      "previewUrl": "https://www.gaming-africa.com/",
+      "source": "Live website"
+    },
+    {
+      "id": "3d-bounce",
+      "name": "3D BOUNCE · NEXUS CORE",
+      "category": "Gaming",
+      "status": "Live",
+      "description": "A playable 3D bouncing game hosted on Replit. Open the live build to enter the Nexus Core experience.",
+      "tech": ["3D Game", "Replit"],
+      "repoUrl": "",
+      "href": "https://3-d-bounce--victor4all2015.replit.app/",
+      "previewUrl": "https://3-d-bounce--victor4all2015.replit.app/",
+      "source": "Live Replit deployment"
+    },
+    {
       "id": "portfolio-website",
       "name": "Portfolio Website",
       "category": "Web",
@@ -107,39 +131,15 @@
     },
     {
       "id": "student-profile-api",
-      "name": "Student Profile API",
+      "name": "Student Profile API · Departments",
       "category": "Backend",
-      "status": "Unverified",
-      "description": "A student-profile API assignment exploring practical backend patterns for student data. A Render test URL is documented, though the service's current availability is unverified.",
+      "status": "In Development",
+      "description": "A student-profile API assignment. The requested departments route currently responds with a COMING SOON page on Render, so this feature is not yet available as a working live project.",
       "tech": ["API", "Render"],
-      "repoUrl": "https://github.com/Linxvicky2049/TS.Academy-student-profile-API-assignment.",
-      "href": "https://ts-academy-student-profile-api-assignment.onrender.com",
-      "previewUrl": "",
-      "source": "Public repository README"
-    },
-    {
-      "id": "gaming-africa",
-      "name": "Gaming Africa",
-      "category": "Web",
-      "status": "Live",
-      "description": "Gaming Africa is a live gaming hub built around a dedicated destination for the gaming community. Visit the site to explore the experience.",
-      "tech": ["Web", "Gaming"],
       "repoUrl": "",
-      "href": "https://gaming-africa.com/",
-      "previewUrl": "https://gaming-africa.com/",
-      "source": "Live website"
-    },
-    {
-      "id": "3d-bounce",
-      "name": "3D BOUNCE · Gemini Task Flow",
-      "category": "AI Experiments",
-      "status": "Unverified",
-      "description": "A Gemini Task Flow experiment shared from Replit. The submitted GitHub repository link could not be verified, so this project is listed without a live preview.",
-      "tech": ["Replit", "Gemini Task Flow"],
-      "repoUrl": "https://github.com/Linxvicky2049/3D-BOUNCE",
-      "href": "",
-      "previewUrl": "",
-      "source": "GitHub repository"
+      "href": "https://ts-academy-student-profile-api-assignment.onrender.com/pages/departments.html",
+      "previewUrl": "https://ts-academy-student-profile-api-assignment.onrender.com/pages/departments.html",
+      "source": "Render deployment · departments route"
     },
     {
       "id": "codepen-gblwxwy",

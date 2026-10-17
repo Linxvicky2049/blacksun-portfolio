@@ -170,7 +170,7 @@ function renderProjectDetails(project) {
         <div class="preview-heading"><span>${project.status === 'Live' ? 'LIVE PREVIEW' : 'PROJECT PREVIEW'}</span><a href="${previewUrl}" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a></div>
         <iframe src="${previewUrl}" title="${escapeHtml(project.name)} project preview" loading="lazy" sandbox="allow-forms allow-scripts allow-same-origin" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
-    ` : '<div class="preview-placeholder"><span>PROJECT PREVIEW</span><p>A live visual preview is not available for this project. Use the repository link to explore its source.</p></div>'}
+    ` : '<div class="preview-placeholder"><span>PROJECT PREVIEW</span><p>An embedded preview is not available. Use the project link above or the repository link to open it directly.</p></div>'}
   `;
 }
 
