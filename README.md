@@ -23,5 +23,5 @@ Then open `http://localhost:3000`.
 
 ## Links
 - LinkedIn: https://www.linkedin.com/in/okafor-victor-2717783b4
-- Portfolio: https://linxvicky2049.github.io/portfolio-website/
+- Portfolio:[ https://linxvicky2049.github.io/portfolio-website/](https://linxvicky2049.github.io/blacksun-portfolio/)
 - Gaming-Africa: https://gaming-africa.com
