@@ -1,0 +1,364 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b12">
+  <meta name="description" content="Work with OKAFOR VICTOR SOMTO to turn ambitious ideas into polished web products, useful AI features, and dependable digital experiences.">
+  <meta property="og:title" content="BLACKSUN // DIGITAL UNIVERSE">
+  <meta property="og:description" content="From first idea to launch: thoughtful product engineering, web development, and practical AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/blacksun-logo.jpeg">
+  <meta property="og:url" content="https://linxvicky2049.github.io/blacksun-portfolio/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>BLACKSUN // DIGITAL UNIVERSE | OKAFOR VICTOR SOMTO</title>
+  <link rel="icon" href="assets/blacksun-logo.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="space" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a href="#home" class="brand" aria-label="BLACKSUN home">
+      <span class="brand-mark"><img src="assets/blacksun-logo.jpeg" alt="BLACKSUN logo"></span>
+      <span class="brand-text">BLACKSUN<span class="brand-dot">.</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#ai-lab">AI Lab</a>
+      <a href="#skills">Skills</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
+      <a href="assets/OKAFOR_VICTOR_SOMTO_Resume.docx" download>CV</a>
+      <div class="project-nav-group">
+        <button type="button" class="nav-project-toggle" aria-expanded="false">Project menu <span>⌄</span></button>
+        <div id="nav-project-list" class="nav-project-list"></div>
+      </div>
+      <button id="support-open" class="nav-icon-button" type="button" aria-label="Open project support">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18m5-14.5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>Support</span>
+      </button>
+    </nav>
+
+    <a class="nav-cta" href="mailto:victor4all2015@gmail.com?subject=Project%20Inquiry">Let's build</a>
+    <button id="account-open" class="account-button" type="button" aria-label="Account sign in">
+      <img src="assets/victor-avatar.jpg" alt="" aria-hidden="true">
+      <span>Account</span>
+    </button>
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section id="home" class="section hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> Available for product engineering</p>
+        <h1>Turn a bold idea into a <em>product that works.</em></h1>
+        <p id="hero-lead" class="hero-lead">I partner with founders and teams to design and build polished web products, practical AI features, and reliable APIs—from the first prototype through launch.</p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore selected work <span>↓</span></a>
+          <a class="button secondary" href="assets/OKAFOR_VICTOR_SOMTO_Resume.docx" download>View my CV <span>↗</span></a>
+        </div>
+
+        <div class="hero-socials" aria-label="Social links">
+          <a data-social="github" href="https://github.com/Linxvicky2049" target="_blank" rel="noreferrer" aria-label="GitHub">GitHub</a>
+          <a data-social="linkedin" href="https://www.linkedin.com/in/okafor-victor-2717783b4" target="_blank" rel="noreferrer" aria-label="LinkedIn">LinkedIn</a>
+          <a data-social="email" href="mailto:victor4all2015@gmail.com" aria-label="Email">Email</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Portrait of OKAFOR VICTOR SOMTO">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="portrait-card">
+          <div class="card-top">
+            <span>BLACKSUN // 001</span>
+            <span>AI-NATIVE</span>
+          </div>
+          <button id="portrait-transform" class="portrait-frame" type="button" aria-label="Transform Victor's portrait into the illustrated BLACKSUN avatar" aria-pressed="false">
+            <img class="portrait-source" src="assets/victor.png" alt="OKAFOR VICTOR SOMTO, full-stack developer and creative technologist" fetchpriority="high">
+            <img class="portrait-avatar" src="assets/victor-avatar.png" alt="Illustrated BLACKSUN avatar" aria-hidden="true">
+            <span class="portrait-fragments" aria-hidden="true"></span>
+            <span class="portrait-transform-prompt" aria-hidden="true"><span class="prompt-orbit">✦</span><span id="portrait-prompt-text">ACTIVATE AVATAR SHIFT</span><span class="prompt-arrow">↗</span></span>
+          </button>
+          <div class="status-strip">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="card-bottom">
+            <strong id="profile-name">VICTOR</strong>
+            <span id="professional-title">CREATIVE TECHNOLOGIST</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Technology summary">
+      <div class="marquee-track">
+        <span>REACT</span><span>✦</span><span>NEXT.JS</span><span>✦</span><span>TYPESCRIPT</span><span>✦</span><span>PYTHON</span><span>✦</span><span>FASTAPI</span><span>✦</span><span>PYTORCH</span><span>✦</span><span>ESP32-S3</span><span>✦</span><span>AI-NATIVE</span>
+      </div>
+    </div>
+
+    <section id="projects" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Project discovery</p>
+        <h2>Selected work, made for <em>real impact.</em></h2>
+        <p>Real products, experiments, and live builds—each with a direct link to explore the experience or the code behind it. Find the work closest to your next challenge.</p>
+      </div>
+
+      <div class="project-carousel">
+        <button class="project-nav prev" type="button" aria-label="Scroll project menu left">‹</button>
+        <div id="project-menu" class="project-menu" aria-label="Project menu" tabindex="0"></div>
+        <button class="project-nav next" type="button" aria-label="Scroll project menu right">›</button>
+      </div>
+
+      <div id="project-panel" class="project-panel" aria-live="polite"></div>
+      <div id="project-filters" class="project-filters" aria-label="Project filters"></div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="about-grid">
+        <div class="about-visual">
+          <img src="assets/black-sun-abstract.png" alt="BLACKSUN abstract digital artwork">
+          <div class="about-badge" aria-label="BLACKSUN studio">BS</div>
+        </div>
+
+        <div class="about-copy">
+          <p class="eyebrow">About Victor</p>
+          <h2 id="about-title">A thoughtful partner for your <em>next big idea.</em></h2>
+          <p id="about-paragraph-one">I am OKAFOR VICTOR SOMTO, a full-stack developer, AI engineer, and creative technologist based in Nigeria. My work sits between software engineering, product design, automation, and connected hardware.</p>
+          <p id="about-paragraph-two">I build practical systems that are useful, elegant, and technically grounded. I care about resilient APIs, clear interfaces, and prototypes that can evolve into products without losing their intent.</p>
+
+          <div class="facts">
+            <div><strong>B.Sc.</strong><span>Physics</span></div>
+            <div><strong>BLACKSUN</strong><span>Independent studio</span></div>
+            <div><strong>∞</strong><span>Curiosity</span></div>
+          </div>
+
+          <div class="social-row">
+            <a data-social="linkedin" href="https://www.linkedin.com/in/okafor-victor-2717783b4" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a data-social="github" href="https://github.com/Linxvicky2049" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://github.com/Linxvicky2049/Group-2-FOOD-DELIVERY-APP" target="_blank" rel="noreferrer">BREAK.app repository ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills-section">
+      <div class="section-head">
+        <p class="eyebrow">Technical skills</p>
+        <h2>Built for the <em>whole stack.</em></h2>
+      </div>
+      <div id="skill-clusters" class="skill-clusters"></div>
+    </section>
+
+    <section id="tools" class="section tools-section">
+      <div class="section-head">
+        <p class="eyebrow">Tools I work with</p>
+        <h2>Tools for thoughtful <em>delivery.</em></h2>
+        <p>A practical toolkit helps me move from clear design decisions to maintainable, production-minded builds.</p>
+      </div>
+      <div class="tool-logo-grid" aria-label="Development tools">
+        <a class="tool-logo-card" href="https://github.com/Linxvicky2049" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" loading="lazy">
+          <span>GitHub</span>
+        </a>
+        <a class="tool-logo-card" href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" loading="lazy">
+          <span>Figma</span>
+        </a>
+        <a class="tool-logo-card" href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" loading="lazy">
+          <span>VS Code</span>
+        </a>
+        <a class="tool-logo-card" href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="" loading="lazy">
+          <span>TypeScript</span>
+        </a>
+        <a class="tool-logo-card" href="https://react.dev/" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="" loading="lazy">
+          <span>React</span>
+        </a>
+        <a class="tool-logo-card" href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="" loading="lazy">
+          <span>Python</span>
+        </a>
+        <a class="tool-logo-card" href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="" loading="lazy">
+          <span>Node.js</span>
+        </a>
+        <a class="tool-logo-card" href="https://www.postman.com/" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="" loading="lazy">
+          <span>Postman</span>
+        </a>
+        <a class="tool-logo-card" href="https://codepen.io/Blacksun-the-builder" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codepen/codepen-original.svg" alt="" loading="lazy">
+          <span>CodePen</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="ai-lab" class="section ai-section">
+      <div class="ai-panel">
+        <div class="ai-copy">
+          <p class="eyebrow">BLACKSUN AI LAB</p>
+          <h2>Practical AI. <em>Human judgment.</em></h2>
+          <p>I use AI where it creates real leverage: exploring ideas, reducing repetitive work, and prototyping useful experiences. Every result still gets human review, careful engineering, and real-world testing.</p>
+        </div>
+        <div class="ai-orb"><span>HUMAN<br>+ AI</span></div>
+      </div>
+      <div id="ai-projects" class="ai-projects"></div>
+    </section>
+
+    <section id="support" class="section support-section" hidden>
+      <div class="support-card">
+        <div>
+          <p class="eyebrow">Support the build</p>
+          <h2>Voluntary project support</h2>
+          <p>Contributions help fund independent experiments, prototype work, and product engineering projects.</p>
+        </div>
+        <div class="support-account">
+          <div class="support-label">Account provider</div>
+          <strong>OPay</strong>
+          <div id="account-holder-label" class="support-label" hidden>Account holder</div>
+          <strong id="account-holder" hidden></strong>
+          <div class="support-row">
+            <span id="account-number">8122911210</span>
+            <button class="copy-button" type="button">Copy account number</button>
+          </div>
+          <div id="copy-status" class="copy-status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow">Start a conversation</p>
+          <h2>Building something ambitious? <em>Let’s make it real.</em></h2>
+          <p id="contact-intro">Tell me what you are trying to achieve, where you are in the process, and what a successful launch looks like. I’ll get back to you with a clear next step.</p>
+          <div class="contact-list">
+            <a id="direct-email" href="mailto:victor4all2015@gmail.com">victor4all2015@gmail.com</a>
+            <span id="contact-location">Nigeria</span>
+            <span>BLACKSUN // 2026</span>
+          </div>
+        </div>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" placeholder="Your name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+          <label>
+            <span>Subject</span>
+            <input type="text" name="subject" placeholder="Project inquiry" required>
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="Tell me about your idea or challenge" required></textarea>
+          </label>
+          <button class="button primary submit-button" type="submit">Send message</button>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 OKAFOR VICTOR SOMTO</div>
+    <div>BLACKSUN // DIGITAL UNIVERSE</div>
+    <div class="footer-links">
+      <a data-social="github" href="https://github.com/Linxvicky2049" target="_blank" rel="noreferrer">GitHub</a>
+      <a data-social="linkedin" href="https://www.linkedin.com/in/okafor-victor-2717783b4" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a data-social="email" href="mailto:victor4all2015@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <section id="account-dialog" class="account-overlay" role="dialog" aria-modal="true" aria-labelledby="account-title" hidden>
+    <div class="account-dialog">
+      <button id="account-close" class="dialog-close" type="button" aria-label="Close account dialog">×</button>
+      <p class="eyebrow">BLACKSUN account</p>
+      <h2 id="account-title">Sign in or create an account</h2>
+      <p class="account-intro">Only the verified super-admin account can change this website. Visitors can opt in to email updates.</p>
+      <div id="account-form-wrap">
+        <form id="account-form">
+          <label><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+          <label><span>Password</span><input type="password" name="password" autocomplete="current-password" minlength="8" required></label>
+          <label class="notify-choice"><input type="checkbox" name="updates"><span>Email me when Victor publishes site updates.</span></label>
+          <div class="account-actions">
+            <button class="button primary" type="submit" name="intent" value="login">Log in</button>
+            <button class="button secondary" type="submit" name="intent" value="register">Create account</button>
+          </div>
+        </form>
+        <button id="google-login" class="google-button" type="button"><span aria-hidden="true">G</span> Continue with Google</button>
+        <p id="account-status" class="form-status" aria-live="polite"></p>
+      </div>
+      <div id="account-signed-in" class="account-signed-in" hidden>
+        <p id="account-identity"></p>
+        <p id="signed-in-status" class="form-status" aria-live="polite"></p>
+        <button id="updates-toggle" class="button secondary" type="button">Update email preferences</button>
+        <button id="admin-open" class="button primary" type="button" hidden>Open admin workspace</button>
+        <button id="account-logout" class="button secondary" type="button">Sign out</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="admin-dashboard" class="section admin-dashboard" hidden>
+    <div class="section-head">
+      <p class="eyebrow">Super-admin workspace</p>
+      <h2>Manage the <em>portfolio.</em></h2>
+      <p>Use the project form for routine project updates, or edit the full JSON configuration for other site content. Only the verified configured admin account can save changes.</p>
+    </div>
+    <div class="admin-project-manager">
+      <div class="admin-project-heading">
+        <h3>Project editor</h3>
+        <div class="admin-actions">
+          <select id="admin-project-select" aria-label="Select a project to edit"></select>
+          <button id="admin-project-new" class="button secondary" type="button">New project</button>
+        </div>
+      </div>
+      <form id="admin-project-form" class="admin-project-form">
+        <label><span>Project name</span><input id="admin-project-name" required></label>
+        <label><span>Category</span><input id="admin-project-category" required></label>
+        <label><span>Status</span>
+          <select id="admin-project-status" required>
+            <option>Live</option><option>In Development</option><option>Prototype</option><option>Private</option><option>Planned</option><option>Unverified</option>
+          </select>
+        </label>
+        <label class="admin-wide"><span>Description</span><textarea id="admin-project-description" rows="3" required></textarea></label>
+        <label><span>GitHub repository URL (optional)</span><input id="admin-project-repo" type="url" placeholder="https://github.com/Linxvicky2049/project"></label>
+        <label><span>Live project URL</span><input id="admin-project-live" type="url" placeholder="https://example.com"></label>
+        <label><span>Live preview URL</span><input id="admin-project-preview" type="url" placeholder="https://example.com"></label>
+        <label class="admin-wide"><span>Technologies (comma-separated)</span><input id="admin-project-tech" placeholder="JavaScript, Node.js, Firebase"></label>
+        <div class="admin-actions admin-wide">
+          <button class="button secondary" type="submit">Add/update project draft</button>
+          <button id="admin-project-delete" class="button secondary" type="button">Remove project</button>
+        </div>
+      </form>
+      <p class="project-source">Draft changes are not public until you select “Save website updates”.</p>
+    </div>
+    <label class="admin-editor-label" for="portfolio-editor">Portfolio data (JSON)</label>
+    <textarea id="portfolio-editor" class="portfolio-editor" spellcheck="false" aria-describedby="admin-status"></textarea>
+    <div class="admin-actions">
+      <button id="admin-refresh" class="button secondary" type="button">Reload saved data</button>
+      <button id="admin-save" class="button primary" type="button">Save website updates</button>
+    </div>
+    <p id="admin-status" class="form-status" aria-live="polite"></p>
+  </section>
+
+  <script>window.BLACKSUN_API_URL = '';</script>
+  <script src="script.js"></script>
+</body>
+</html>

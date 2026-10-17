@@ -1,0 +1,4 @@
+﻿CV PDF pending approved source.
+
+This directory currently hosts the verified DOCX resume and a note that the PDF version is not yet available.
+A valid PDF should only be created from an approved source document and should not invent or replace resume content.

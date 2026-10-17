@@ -1,0 +1,185 @@
+{
+  "name": "OKAFOR VICTOR SOMTO",
+  "title": "Full-Stack Developer | AI Engineer | Creative Technologist",
+  "company": "BLACKSUN",
+  "email": "victor4all2015@gmail.com",
+  "phone": "08122911210",
+  "alternatePhone": "07049861175",
+  "location": "Nigeria",
+  "headline": "I partner with founders and teams to design and build polished web products, practical AI features, and reliable APIs—from the first prototype through launch.",
+  "about": {
+    "title": "A thoughtful engineering partner for your next big idea.",
+    "paragraphs": [
+      "I’m OKAFOR VICTOR SOMTO, a full-stack developer, AI engineer, and creative technologist based in Nigeria. I help turn ambitious ideas into considered digital products—with clear communication and engineering that respects the people who will use them.",
+      "From responsive web experiences and robust APIs to practical AI prototypes, I work across the details that make a product feel coherent: useful features, thoughtful interfaces, reliable foundations, and a path from early concept to launch."
+    ]
+  },
+  "contact": {
+    "intro": "Have a product idea, a workflow worth improving, or a complex build to untangle? Share the goal, what you’ve tried, and your ideal timeline. I’ll respond with a straightforward next step—no jargon, just a practical conversation.",
+    "location": "Nigeria"
+  },
+  "siteUrl": "https://linxvicky2049.github.io/blacksun-portfolio/",
+  "socials": {
+    "github": "https://github.com/Linxvicky2049",
+    "linkedin": "https://www.linkedin.com/in/okafor-victor-2717783b4",
+    "email": "mailto:victor4all2015@gmail.com"
+  },
+  "skills": {
+    "frontend": ["HTML", "CSS", "JavaScript", "React", "Next.js", "TypeScript"],
+    "backend": ["Node.js", "Express.js", "Python", "FastAPI", "REST APIs"],
+    "data": ["MongoDB", "PostgreSQL", "Firebase", "Supabase"],
+    "ai": ["PyTorch", "OCR", "Image processing", "Machine learning", "Automation"],
+    "hardware": ["ESP32", "ESP32-S3", "Sensors", "Wireless sensing", "Embedded systems"],
+    "tools": ["Git", "GitHub", "VS Code", "Figma", "AI-assisted workflows"]
+  },
+  "projects": [
+    {
+      "id": "break-app",
+      "name": "BREAK.app",
+      "category": "Product",
+      "status": "Live",
+      "description": "A multi-sided food discovery and delivery experience that brings diners, restaurants, vendors, and riders into one journey—from exploring food to coordinating an order. Built as a TS Academy Group 2 capstone.",
+      "tech": ["JavaScript", "Full-stack", "Food delivery"],
+      "repoUrl": "https://github.com/Linxvicky2049/Group-2-FOOD-DELIVERY-APP",
+      "href": "https://break-app-delta.vercel.app/",
+      "previewUrl": "https://break-app-delta.vercel.app/",
+      "source": "GitHub repository homepage"
+    },
+    {
+      "id": "portfolio-website",
+      "name": "Portfolio Website",
+      "category": "Web",
+      "status": "Live",
+      "description": "An earlier BLACKSUN portfolio, built to present creative work through a responsive, focused web experience. Explore the live site and its public source.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "repoUrl": "https://github.com/Linxvicky2049/portfolio-website",
+      "href": "https://linxvicky2049.github.io/portfolio-website/",
+      "previewUrl": "https://linxvicky2049.github.io/portfolio-website/",
+      "source": "GitHub Pages"
+    },
+    {
+      "id": "ts-bank",
+      "name": "TS-BANK",
+      "category": "Web",
+      "status": "Live",
+      "description": "A live TS-BANK web project with a focused digital banking concept. Explore the published experience and the implementation behind it.",
+      "tech": ["JavaScript"],
+      "repoUrl": "https://github.com/Linxvicky2049/TS-BANK",
+      "href": "https://linxvicky2049.github.io/TS-BANK/",
+      "previewUrl": "https://linxvicky2049.github.io/TS-BANK/",
+      "source": "GitHub Pages"
+    },
+    {
+      "id": "student-management-system",
+      "name": "Student Management System",
+      "category": "Web",
+      "status": "Live",
+      "description": "A live student-management experience designed to make student information and school workflows easier to explore, with a related profile API project.",
+      "tech": ["HTML"],
+      "repoUrl": "https://github.com/Linxvicky2049/student-management-system",
+      "href": "https://linxvicky2049.github.io/student-management-system/",
+      "previewUrl": "https://linxvicky2049.github.io/student-management-system/",
+      "source": "GitHub Pages"
+    },
+    {
+      "id": "velnut-luxury-page",
+      "name": "VelNut Luxury Page",
+      "category": "AI Experiments",
+      "status": "Live",
+      "description": "A cinematic product page for a premium peanut-butter brand, pairing bold visual storytelling with a polished live experience. Built with a Google AI Studio workflow.",
+      "tech": ["TypeScript", "Google AI Studio"],
+      "repoUrl": "https://github.com/Linxvicky2049/velnut-luxury-page",
+      "href": "https://linxvicky2049.github.io/velnut-luxury-page/",
+      "previewUrl": "https://linxvicky2049.github.io/velnut-luxury-page/",
+      "source": "GitHub Pages"
+    },
+    {
+      "id": "jumia-inventory",
+      "name": "Jumia Inventory Management",
+      "category": "E-commerce",
+      "status": "Unverified",
+      "description": "A Jumia-inspired inventory-management concept focused on clearer product operations. The public source is available to explore; no live deployment is currently listed.",
+      "tech": ["JavaScript"],
+      "repoUrl": "https://github.com/Linxvicky2049/Jumia-inventory-management-app",
+      "href": "",
+      "previewUrl": "",
+      "source": "GitHub repository"
+    },
+    {
+      "id": "student-profile-api",
+      "name": "Student Profile API",
+      "category": "Backend",
+      "status": "Unverified",
+      "description": "A student-profile API assignment exploring practical backend patterns for student data. A Render test URL is documented, though the service's current availability is unverified.",
+      "tech": ["API", "Render"],
+      "repoUrl": "https://github.com/Linxvicky2049/TS.Academy-student-profile-API-assignment.",
+      "href": "https://ts-academy-student-profile-api-assignment.onrender.com",
+      "previewUrl": "",
+      "source": "Public repository README"
+    },
+    {
+      "id": "gaming-africa",
+      "name": "Gaming Africa",
+      "category": "Web",
+      "status": "Live",
+      "description": "Gaming Africa is a live gaming hub built around a dedicated destination for the gaming community. Visit the site to explore the experience.",
+      "tech": ["Web", "Gaming"],
+      "repoUrl": "",
+      "href": "https://gaming-africa.com/",
+      "previewUrl": "https://gaming-africa.com/",
+      "source": "Live website"
+    },
+    {
+      "id": "3d-bounce",
+      "name": "3D BOUNCE · Gemini Task Flow",
+      "category": "AI Experiments",
+      "status": "Unverified",
+      "description": "A Gemini Task Flow experiment shared from Replit. The submitted GitHub repository link could not be verified, so this project is listed without a live preview.",
+      "tech": ["Replit", "Gemini Task Flow"],
+      "repoUrl": "https://github.com/Linxvicky2049/3D-BOUNCE",
+      "href": "",
+      "previewUrl": "",
+      "source": "GitHub repository"
+    },
+    {
+      "id": "codepen-gblwxwy",
+      "name": "CodePen Practice · gbLwXWy",
+      "category": "CodePen Practice",
+      "status": "Unverified",
+      "description": "A focused front-end practice experiment from the BLACKSUN CodePen profile. Open the pen to explore the result and its source.",
+      "tech": ["CodePen", "Frontend practice"],
+      "repoUrl": "",
+      "href": "https://codepen.io/Blacksun-the-builder/pen/gbLwXWy",
+      "previewUrl": "https://codepen.io/Blacksun-the-builder/embed/gbLwXWy?default-tab=result",
+      "source": "BLACKSUN CodePen profile"
+    },
+    {
+      "id": "codepen-lebjpeq",
+      "name": "CodePen Practice · LEbjPEQ",
+      "category": "CodePen Practice",
+      "status": "Unverified",
+      "description": "Another front-end practice experiment from the BLACKSUN CodePen profile—small iterations that sharpen ideas into better web experiences.",
+      "tech": ["CodePen", "Frontend practice"],
+      "repoUrl": "",
+      "href": "https://codepen.io/Blacksun-the-builder/pen/LEbjPEQ",
+      "previewUrl": "https://codepen.io/Blacksun-the-builder/embed/LEbjPEQ?default-tab=result",
+      "source": "BLACKSUN CodePen profile"
+    }
+  ],
+  "aiProjects": [
+    {
+      "title": "VelNut Luxury Page",
+      "description": "A live, cinematic product experience developed with a Google AI Studio workflow. Explore the published page and the public source.",
+      "technology": ["Google AI Studio", "TypeScript"],
+      "status": "Live",
+      "kind": "Published project",
+      "repoUrl": "https://github.com/Linxvicky2049/velnut-luxury-page",
+      "href": "https://linxvicky2049.github.io/velnut-luxury-page/"
+    }
+  ],
+  "support": {
+    "provider": "OPay",
+    "accountNumber": "8122911210",
+    "note": "Voluntary support for independent product and prototype work."
+  }
+}
