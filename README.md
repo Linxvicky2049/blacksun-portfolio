@@ -66,3 +66,6 @@ The contact API returns a direct-email fallback when SMTP credentials are missin
 - The reveal is a decorative fixed layer and uses `pointer-events: none`, so scrolling, navigation, buttons, and forms remain usable.
 - Skill badges use Devicon SVGs for recognized technologies. Unsupported or unavailable icons fall back to readable two-letter marks and retain the technology name.
 - GitHub, LinkedIn, and email actions include inline SVG brand icons, so their core marks do not depend on a third-party icon font.
+
+## Professional credential
+The portfolio includes a TS Academy Software Development certificate (six-month training programme, issued 31 October 2026) at `assets/certificates/TS-Academy-Software-Development-Certificate.pdf`. The credential is presented in the Credentials section and is available to view or download. The resume DOCX files include the same training entry.

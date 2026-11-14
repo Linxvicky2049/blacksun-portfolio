@@ -1424,3 +1424,78 @@ body { isolation: isolate; }
 @media (prefers-reduced-motion: reduce) {
   #cursor-reveal { display: none; }
 }
+
+
+/* Professional credentials */
+.credentials-section .credential-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.5fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border: 1px solid rgba(143, 190, 255, .2);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(15, 25, 42, .92), rgba(7, 11, 18, .88));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .22);
+}
+.credential-art {
+  min-height: 230px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(34, 211, 238, .22), transparent 42%),
+    linear-gradient(145deg, rgba(30, 91, 180, .28), rgba(10, 18, 32, .9));
+  border: 1px solid rgba(104, 170, 255, .24);
+}
+.credential-art::before,
+.credential-art::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(111, 194, 255, .24);
+  border-radius: 50%;
+}
+.credential-art::after { width: 145px; height: 145px; border-style: dashed; }
+.credential-seal {
+  z-index: 1;
+  width: 112px;
+  height: 112px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  border-radius: 50%;
+  color: #eaf6ff;
+  font: 800 1.65rem/1 "Space Grotesk", sans-serif;
+  background: linear-gradient(145deg, #1762c4, #092c63);
+  border: 4px solid #36d6ce;
+  box-shadow: 0 0 35px rgba(54, 214, 206, .22);
+}
+.credential-seal small { font: 700 .58rem/1.4 "JetBrains Mono", monospace; letter-spacing: .12em; }
+.credential-code {
+  position: absolute;
+  bottom: 15px;
+  color: rgba(220, 235, 255, .58);
+  font: 500 .68rem "JetBrains Mono", monospace;
+  letter-spacing: .12em;
+}
+.credential-issuer {
+  margin: 0 0 .45rem;
+  color: #68d8e6;
+  font: 700 .75rem "JetBrains Mono", monospace;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.credential-copy h3 { margin: 0 0 .8rem; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+.credential-copy > p:not(.credential-issuer) { max-width: 650px; color: var(--muted, #aab4c4); line-height: 1.75; }
+.credential-meta { display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; margin: 1.2rem 0 1.5rem; color: var(--muted, #aab4c4); font-size: .88rem; }
+.credential-meta strong { color: #eef5ff; }
+.credential-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+@media (max-width: 720px) {
+  .credentials-section .credential-card { grid-template-columns: 1fr; }
+  .credential-art { min-height: 185px; }
+  .credential-actions .button { width: 100%; justify-content: center; }
+}
