@@ -4,7 +4,7 @@ Responsive personal portfolio for OKAFOR VICTOR SOMTO. The site features a touch
 
 The hero portrait is an accessible, clickable toggle: both image changes use perspective-lit 3D shards to transition between Victor's portrait and `assets/victor-avatar.png`, with no on-image prompt. The account button uses the illustrated `victor-avatar.jpg`. Motion includes subtle orbiting artwork, pointer-reactive 3D tilt, staggered project cards, and scroll reveals; the portrait transition and other effects respect the device's reduced-motion preference.
 
-The full-screen `assets/black-sun-abstract.png` background is revealed beneath a soft, moving cursor or touch mask. The canvas uses a cover fit, caps rendering at 2x device pixel ratio, fades after pointer movement stops, and remains pointer-transparent so site controls work normally. The reveal simplifies its interpolation for reduced-motion users and leaves the dark background in place if the image or canvas cannot load. It uses browser Canvas 2D and Pointer Events support available in current major browsers.
+The full-screen `assets/black-sun-abstract.png` artwork is revealed through a moving Canvas 2D mask. The mask smoothly morphs between a circular spotlight and an organic, dust-edged warp, tracks mouse, pen, and touch input, and fades after interaction. The image uses a full-viewport cover fit, the canvas is capped at 2x device pixel ratio, and the decorative layer never intercepts site controls. Reduced-motion users receive a simplified experience; if the artwork or canvas cannot load, the dark background remains usable. The responsive layout supports desktop browsers, tablets, and Android/iOS mobile browsers. Technology badges use Devicon brand marks where available, with accessible text fallbacks; social and repository actions use recognizable inline brand icons.
 
 ## Run locally
 
@@ -57,3 +57,12 @@ npm start
 ```
 
 The contact API returns a direct-email fallback when SMTP credentials are missing. Firebase login and persistent admin editing require the Firebase settings and service account described above.
+
+
+## Responsive interaction and icon system
+
+- Desktop: pointer-driven reveal with a larger radius and a slow circular-to-organic shape morph.
+- Tablet and mobile: pointer/touch events share the same renderer with smaller reveal radii and orientation-aware canvas resizing.
+- The reveal is a decorative fixed layer and uses `pointer-events: none`, so scrolling, navigation, buttons, and forms remain usable.
+- Skill badges use Devicon SVGs for recognized technologies. Unsupported or unavailable icons fall back to readable two-letter marks and retain the technology name.
+- GitHub, LinkedIn, and email actions include inline SVG brand icons, so their core marks do not depend on a third-party icon font.

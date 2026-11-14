@@ -1352,3 +1352,75 @@ h2 em, h1 em { color: var(--lime); font-style: normal; }
   .project-tile:hover,
   .tool-logo-card:hover { transform: none; }
 }
+
+
+/* BLACKSUN responsive brand icon system and organic reveal polish */
+.social-brand-icon, .project-card-actions svg, .repo-hint svg {
+  width: 17px;
+  height: 17px;
+  display: inline-flex;
+  flex: 0 0 17px;
+}
+.hero-socials a, .social-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand-icon {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+  flex: 0 0 17px;
+}
+.brand-icon-fallback {
+  width: 17px;
+  height: 17px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 17px;
+  border-radius: 5px;
+  background: rgba(186,255,53,.12);
+  color: var(--lime);
+  font: 700 8px 'JetBrains Mono', monospace;
+}
+.skill-tag { gap: 8px; }
+.project-tech { gap: 7px; }
+.project-card-actions a { gap: 9px; }
+.repo-hint { display: inline-flex; align-items: center; gap: 6px; }
+#cursor-reveal { z-index: 0; }
+body > .noise { z-index: 1; }
+.topbar, main, footer, .modal, .toast, #account-modal, #support-modal { position: relative; z-index: 2; }
+body { isolation: isolate; }
+.tool-logo-card { min-width: 0; }
+.tool-logo-card img { max-width: 100%; }
+
+@media (max-width: 900px) {
+  .topbar { width: calc(100% - 24px); padding: 13px 16px; }
+  .nav { gap: 12px; }
+  .hero { gap: 28px; }
+  .hero-visual { min-height: 460px; }
+  .project-panel { grid-template-columns: 1fr; }
+  .skill-clusters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .topbar { margin-top: 8px; border-radius: 16px; }
+  .brand-text { font-size: 1rem; }
+  .hero { min-height: auto; padding-top: 64px; }
+  .hero-visual { min-height: 390px; }
+  .portrait-card { width: min(100%, 330px); }
+  .hero-actions { flex-wrap: wrap; }
+  .hero-actions .button { flex: 1 1 100%; justify-content: center; }
+  .hero-socials, .social-row { gap: 14px; }
+  .hero-socials a, .social-row a { font-size: .66rem; }
+  .skill-clusters { grid-template-columns: 1fr; }
+  .tool-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tool-logo-card { min-height: 84px; padding: 13px; gap: 10px; font-size: .75rem; }
+  .tool-logo-card img { width: 28px; height: 28px; }
+  .project-menu { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .project-tile { scroll-snap-align: center; }
+  .project-card-actions a { flex: 1 1 100%; }
+  #cursor-reveal { opacity: .94; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #cursor-reveal { display: none; }
+}

@@ -124,7 +124,7 @@ function renderProjects() {
         <span class="tile-category">${escapeHtml(project.category)}</span>
         <span class="tile-title">${escapeHtml(project.name)}</span>
         <span class="status-tag status-${escapeHtml(String(project.status).toLowerCase().replace(/[^a-z]+/g, '-'))}">${escapeHtml(project.status)}</span>
-        ${repoUrl ? '<span class="repo-hint">GitHub repo ↗</span>' : ''}
+        ${repoUrl ? '<span class="repo-hint">' + BRAND_SVGS.github + ' GitHub repo</span>' : ''}
       </button>
     `;
   }).join('');
@@ -158,10 +158,10 @@ function renderProjectDetails(project) {
         <span class="status-tag status-${escapeHtml(String(project.status).toLowerCase().replace(/[^a-z]+/g, '-'))}">${escapeHtml(project.status)}</span>
       </div>
       <p>${escapeHtml(project.description)}</p>
-      <div class="project-tags">${tech.map((item) => `<span>${escapeHtml(item)}</span>`).join('')}</div>
+      <div class="project-tags">${tech.map((item) => `<span class="project-tech">${brandIconMarkup(item)}<span>${escapeHtml(item)}</span></span>`).join('')}</div>
       <div class="project-card-actions">
         ${liveUrl ? `<a class="primary" href="${liveUrl}" target="_blank" rel="noopener noreferrer">${project.status === 'Live' ? 'Open live project ↗' : 'Open project link ↗'}</a>` : ''}
-        ${repoUrl ? `<a href="${repoUrl}" target="_blank" rel="noopener noreferrer">View repository ↗</a>` : ''}
+        ${repoUrl ? `<a href="${repoUrl}" target="_blank" rel="noopener noreferrer">${actionIconMarkup("github")}<span>View repository</span></a>` : ''}
       </div>
       <p class="project-source">Source: ${escapeHtml(project.source || 'Public GitHub repository')}</p>
     </div>
@@ -186,6 +186,30 @@ function selectProjectById(id) {
   tile?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 }
 
+const TECH_ICON_SLUGS = {
+  HTML: 'html5', CSS: 'css3', JavaScript: 'javascript', React: 'react',
+  'Next.js': 'nextjs', TypeScript: 'typescript', 'Node.js': 'nodejs',
+  'Express.js': 'express', Python: 'python', FastAPI: 'fastapi',
+  MongoDB: 'mongodb', PostgreSQL: 'postgresql', Firebase: 'firebase',
+  Supabase: 'supabase', PyTorch: 'pytorch', Git: 'git', GitHub: 'github',
+  'VS Code': 'vscode', Figma: 'figma', Docker: 'docker', Postman: 'postman',
+  Arduino: 'arduino', Linux: 'linux'
+};
+const BRAND_SVGS = {
+  github: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.76 2.08 3.25 1.58.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.24-5.1 5.51.4.35.75 1.03.75 2.08v3.08c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg>',
+  linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.2 3.4a2.2 2.2 0 1 1-4.4 0 2.2 2.2 0 0 1 4.4 0ZM1.2 8h3.9v14H1.2V8Zm6.3 0h3.7v1.9h.1c.5-1 1.8-2.2 3.8-2.2 4.1 0 4.9 2.7 4.9 6.2V22h-3.9v-7.2c0-1.7 0-3.8-2.3-3.8s-2.6 1.8-2.6 3.7V22H7.5V8Z"/></svg>',
+  email: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2.5 5.5h19a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 1-1.5 1.5h-19A1.5 1.5 0 0 1 1 17V7a1.5 1.5 0 0 1 1.5-1.5Zm.2 2 9.3 6.2 9.3-6.2H2.7Zm18.8 9.5V9.7L12 15.9 2.5 9.7V17h19Z"/></svg>'
+};
+function brandIconMarkup(name) {
+  const slug = TECH_ICON_SLUGS[name];
+  if (slug) return `<img class="brand-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${slug}/${slug}-original.svg" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand-icon-fallback',textContent:'${escapeHtml(name.slice(0,2).toUpperCase())}'}))">`;
+  return `<span class="brand-icon-fallback" aria-hidden="true">${escapeHtml(name.slice(0,2).toUpperCase())}</span>`;
+}
+function actionIconMarkup(kind) {
+  if (kind === 'github') return BRAND_SVGS.github;
+  return '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 12h13m-5-5 5 5-5 5"/></svg>';
+}
+
 function renderSkills(skills = {}) {
   const sections = [
     ['frontend', 'Frontend'],
@@ -198,7 +222,7 @@ function renderSkills(skills = {}) {
   document.getElementById('skill-clusters').innerHTML = sections.map(([key, title]) => `
     <article class="skill-card">
       <h3>${escapeHtml(title)}</h3>
-      <div class="tag-row">${(skills[key] || []).map((skill) => `<span class="skill-tag">${escapeHtml(skill)}</span>`).join('')}</div>
+      <div class="tag-row">${(skills[key] || []).map((skill) => `<span class="skill-tag">${brandIconMarkup(skill)}<span>${escapeHtml(skill)}</span></span>`).join('')}</div>
     </article>
   `).join('');
 }
@@ -216,7 +240,7 @@ function renderAiLab(projects = []) {
         <span class="ai-status">${escapeHtml(project.status)}</span>
         <div class="project-card-actions">
           ${liveUrl ? `<a href="${liveUrl}" target="_blank" rel="noopener noreferrer">Live project ↗</a>` : ''}
-          ${repoUrl ? `<a href="${repoUrl}" target="_blank" rel="noopener noreferrer">Repository ↗</a>` : ''}
+          ${repoUrl ? `<a href="${repoUrl}" target="_blank" rel="noopener noreferrer">${actionIconMarkup("github")}<span>Repository</span></a>` : ''}
         </div>
       </article>
     `;
@@ -901,21 +925,55 @@ function setupInteractiveReveal() {
       context.globalCompositeOperation = 'source-over';
       context.drawImage(image, (width - imageWidth) / 2, (height - imageHeight) / 2, imageWidth, imageHeight);
 
-      const mask = context.createRadialGradient(x, y, 0, x, y, radius);
-      mask.addColorStop(0, `rgba(255,255,255,${opacity})`);
-      mask.addColorStop(REVEAL_CONFIG.edgeStart, `rgba(255,255,255,${opacity})`);
-      mask.addColorStop(REVEAL_CONFIG.edgeMidpoint, `rgba(255,255,255,${opacity * 0.56})`);
-      mask.addColorStop(1, 'rgba(255,255,255,0)');
+      // Morph continuously between a clean spotlight and an organic, dust-like warp.
+      const elapsed = performance.now() * 0.001;
+      const morph = prefersReducedMotion ? 0 : (Math.sin(elapsed * 0.42) + 1) * 0.5;
+      const velocity = Math.min(1, Math.hypot(targetX - x, targetY - y) / 70);
+      const points = 84;
       context.globalCompositeOperation = 'destination-in';
+      context.beginPath();
+      for (let index = 0; index <= points; index += 1) {
+        const angle = (index / points) * Math.PI * 2;
+        const wave = Math.sin(angle * 3 + elapsed * 1.7) * 0.095
+          + Math.cos(angle * 7 - elapsed * 1.15) * 0.052
+          + Math.sin(angle * 11 + elapsed * 0.8) * 0.025;
+        const dustWarp = morph * (0.20 + velocity * 0.16);
+        const r = radius * (1 + wave * dustWarp);
+        const px = x + Math.cos(angle) * r;
+        const py = y + Math.sin(angle) * r * (0.88 + morph * 0.08);
+        if (index === 0) context.moveTo(px, py);
+        else context.lineTo(px, py);
+      }
+      context.closePath();
+      const mask = context.createRadialGradient(x, y, radius * 0.12, x, y, radius * 1.12);
+      mask.addColorStop(0, `rgba(255,255,255,${opacity})`);
+      mask.addColorStop(0.58, `rgba(255,255,255,${opacity})`);
+      mask.addColorStop(0.82, `rgba(255,255,255,${opacity * 0.64})`);
+      mask.addColorStop(1, 'rgba(255,255,255,0)');
       context.fillStyle = mask;
-      context.fillRect(0, 0, width, height);
+      context.fill();
+      // Fine peripheral dust flecks add an airy, dissolving edge to the warp.
+      if (!prefersReducedMotion && morph > 0.35) {
+        for (let i = 0; i < 26; i += 1) {
+          const angle = (i / 26) * Math.PI * 2 + elapsed * 0.12;
+          const spread = radius * (0.91 + ((i * 17) % 11) / 35);
+          const px = x + Math.cos(angle) * spread;
+          const py = y + Math.sin(angle) * spread * 0.9;
+          context.globalAlpha = opacity * (0.12 + ((i * 7) % 9) / 35);
+          context.beginPath();
+          context.arc(px, py, 1 + (i % 3) * 0.65, 0, Math.PI * 2);
+          context.fillStyle = '#fff';
+          context.fill();
+        }
+        context.globalAlpha = 1;
+      }
       context.globalCompositeOperation = 'source-over';
     }
 
     const stillMoving = Math.abs(targetX - x) >= 0.3
       || Math.abs(targetY - y) >= 0.3
       || Math.abs(targetOpacity - opacity) >= 0.01;
-    if (stillMoving) requestDraw();
+    if (stillMoving || (opacity > 0.002 && !prefersReducedMotion)) requestDraw();
   }
 
   function resize() {
