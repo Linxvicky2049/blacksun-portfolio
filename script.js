@@ -810,7 +810,85 @@ function bindAuth() {
   });
 }
 
+
+/* ==========================================
+   BLACKSUN PRELOADER CONTROLLER
+   ========================================== */
+
+let blacksunLoaderProgress = 0;
+let blacksunLoaderTimer = null;
+let blacksunLoaderFailsafe = null;
+
+function updateBlackSunLoader(value, status) {
+  const fill = document.getElementById('preloader-progress-fill');
+  const percentage = document.getElementById('preloader-percentage');
+  const label = document.getElementById('preloader-status');
+
+  blacksunLoaderProgress = Math.max(
+    blacksunLoaderProgress,
+    Math.min(100, value)
+  );
+
+  if (fill) fill.style.width = `${blacksunLoaderProgress}%`;
+  if (percentage) percentage.textContent = `${String(Math.round(blacksunLoaderProgress)).padStart(2, '0')}%`;
+  if (label && status) label.textContent = status;
+}
+
+function startBlackSunLoader() {
+  const loader = document.getElementById('blacksun-preloader');
+  if (!loader) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    finishBlackSunLoader();
+    return;
+  }
+
+  updateBlackSunLoader(8, 'INITIALIZING EXPERIENCE');
+
+  const stages = [
+    [24, 'PREPARING DIGITAL ENVIRONMENT'],
+    [43, 'LOADING PORTFOLIO CONTENT'],
+    [65, 'CONNECTING INTERACTIVE SYSTEMS'],
+    [82, 'INITIALIZING USER EXPERIENCE'],
+    [94, 'FINALIZING INTERFACE']
+  ];
+
+  let stage = 0;
+
+  blacksunLoaderTimer = window.setInterval(() => {
+    if (stage >= stages.length) return;
+    updateBlackSunLoader(...stages[stage]);
+    stage += 1;
+  }, 550);
+
+  blacksunLoaderFailsafe = window.setTimeout(() => {
+    finishBlackSunLoader();
+  }, 12000);
+}
+
+function finishBlackSunLoader() {
+  const loader = document.getElementById('blacksun-preloader');
+  if (!loader || loader.classList.contains('is-hidden')) return;
+
+  if (blacksunLoaderTimer) {
+    window.clearInterval(blacksunLoaderTimer);
+    blacksunLoaderTimer = null;
+  }
+
+  if (blacksunLoaderFailsafe) {
+    window.clearTimeout(blacksunLoaderFailsafe);
+    blacksunLoaderFailsafe = null;
+  }
+
+  updateBlackSunLoader(100, 'WELCOME TO BLACKSUN');
+
+  window.setTimeout(() => {
+    loader.classList.add('is-hidden');
+    window.setTimeout(() => loader.remove(), 1000);
+  }, 250);
+}
 async function init() {
+  startBlackSunLoader();
   bindNavigation();
   bindCarousel();
   bindContact();
@@ -823,6 +901,7 @@ async function init() {
   setupBackgroundStars();
   await loadPortfolio();
   await initAuth();
+  finishBlackSunLoader();
 }
 
 function setupMotion() {
