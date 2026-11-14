@@ -1499,3 +1499,369 @@ body { isolation: isolate; }
   .credential-art { min-height: 185px; }
   .credential-actions .button { width: 100%; justify-content: center; }
 }
+
+/* ==========================================
+   BLACKSUN NAVIGATION REPAIR
+   Desktop + Mobile + Glass Transparency
+   ========================================== */
+
+.topbar {
+  position: sticky !important;
+  top: 10px;
+  z-index: 1000 !important;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(10px, 1.5vw, 22px);
+  background: rgba(5, 10, 18, 0.82) !important;
+  border: 1px solid rgba(150, 190, 220, 0.18);
+  backdrop-filter: blur(24px) saturate(155%);
+  -webkit-backdrop-filter: blur(24px) saturate(155%);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.topbar > * {
+  min-width: 0;
+}
+
+.brand {
+  flex-shrink: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.3vw, 22px);
+  min-width: 0;
+}
+
+.nav a,
+.nav button {
+  white-space: nowrap;
+}
+
+.nav-project-list {
+  z-index: 1100;
+  background: rgba(7, 13, 23, 0.96);
+  border: 1px solid rgba(150, 190, 220, 0.20);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+}
+
+.nav-cta,
+.account-button,
+.menu-toggle {
+  flex-shrink: 0;
+}
+
+.menu-toggle {
+  position: relative;
+  z-index: 1200;
+  cursor: pointer;
+}
+
+/* Prevent the page content from covering the menu */
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tablet and smaller screens */
+@media (max-width: 900px) {
+  .topbar {
+    width: calc(100% - 24px);
+    padding: 13px 16px;
+    gap: 12px;
+  }
+
+  .brand {
+    margin-right: auto;
+  }
+}
+
+/* Mobile navigation */
+@media (max-width: 760px) {
+  .topbar {
+    position: sticky !important;
+    top: 8px;
+    z-index: 1000 !important;
+    flex-wrap: nowrap;
+    padding: 12px 14px;
+    border-radius: 18px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .menu-toggle span {
+    width: 19px;
+    height: 2px;
+    border-radius: 5px;
+    background: var(--ink);
+  }
+
+  .nav {
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100%;
+    max-height: min(72vh, 560px);
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid rgba(150, 190, 220, 0.22);
+    border-radius: 18px;
+    background: rgba(5, 10, 19, 0.96) !important;
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.55);
+    z-index: 1100;
+  }
+
+  .nav.open {
+    display: flex !important;
+  }
+
+  .nav a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    white-space: normal;
+  }
+
+  .nav a:hover,
+  .nav a:focus-visible {
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .nav-project-group,
+  .project-nav-group {
+    width: 100%;
+  }
+
+  .nav-project-toggle {
+    width: 100%;
+    min-height: 42px;
+    justify-content: space-between;
+  }
+
+  .nav-project-list {
+    position: static !important;
+    width: 100%;
+    max-height: 240px;
+    overflow-y: auto;
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+
+  .nav-icon-button {
+    width: 100%;
+    min-height: 42px;
+    justify-content: flex-start;
+  }
+
+  .nav-cta {
+    display: none !important;
+  }
+
+  .account-button {
+    min-height: 42px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  .topbar {
+    width: calc(100% - 20px);
+    padding: 10px 12px;
+  }
+
+  .brand-text {
+    font-size: 0.95rem;
+  }
+
+  .brand-mark img {
+    max-width: 36px;
+  }
+
+  .nav {
+    padding: 12px;
+  }
+}
+
+/* Browser fallback */
+@supports not (backdrop-filter: blur(1px)) {
+  .topbar,
+  .nav,
+  .nav-project-list {
+    background: rgba(5, 10, 19, 0.97) !important;
+  }
+}
+
+
+/* ==========================================
+   BLACKSUN RESPONSIVE NAVIGATION WIDTH FIX
+   ========================================== */
+
+/* Wide desktop */
+@media (min-width: 1101px) {
+  .topbar {
+    width: min(1500px, calc(100% - 40px));
+    gap: clamp(14px, 2vw, 30px);
+    padding: 16px clamp(18px, 2vw, 30px);
+  }
+
+  .nav {
+    display: flex !important;
+    flex: 1 1 auto;
+    justify-content: center;
+    gap: clamp(10px, 1.3vw, 22px);
+    white-space: nowrap;
+  }
+
+  .nav a {
+    font-size: clamp(0.68rem, 0.75vw, 0.78rem);
+  }
+
+  .menu-toggle {
+    display: none !important;
+  }
+}
+
+/* Tablet and compact laptop: 761px to 1100px */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .topbar {
+    position: sticky !important;
+    top: 8px;
+    width: calc(100% - 32px);
+    padding: 12px 16px;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+    margin-right: auto;
+  }
+
+  .nav-cta {
+    display: none !important;
+  }
+
+  .account-button {
+    flex-shrink: 0;
+    min-height: 42px;
+    padding: 8px 10px;
+  }
+
+  .menu-toggle {
+    display: flex !important;
+    flex: 0 0 44px;
+    position: relative;
+    z-index: 1200;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .nav {
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100%;
+    max-height: min(72vh, 560px);
+    display: none !important;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 16px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid rgba(150, 190, 220, 0.22);
+    border-radius: 18px;
+    background: rgba(5, 10, 19, 0.96) !important;
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.55);
+    z-index: 1100;
+  }
+
+  .nav.open {
+    display: flex !important;
+  }
+
+  .nav a {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    white-space: normal;
+  }
+
+  .nav-project-group,
+  .project-nav-group {
+    width: 100%;
+  }
+
+  .nav-project-toggle,
+  .nav-icon-button {
+    width: 100%;
+    min-height: 42px;
+    justify-content: flex-start;
+  }
+
+  .nav-project-list {
+    position: static !important;
+    width: 100%;
+    margin-top: 8px;
+  }
+}
+
+/* Smaller mobile devices */
+@media (max-width: 760px) {
+  .topbar {
+    width: calc(100% - 20px);
+    gap: 8px;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .account-button {
+    flex-shrink: 0;
+  }
+}
+
